@@ -13,8 +13,10 @@ void Solve(){
             if(b[i][j]==0)continue;
             for(int k=0;k<4;k++){
                 int cnt=0;
+                int tx=i-dx[k],ty=j-dy[k];
+                if(isin(tx,ty)&&b[i][j]==b[tx][ty])continue;
                 for(int l=0;l<6;l++){
-                    int tx=i+dx[k]*l,ty=j+dy[k]*l;
+                    tx=i+dx[k]*l,ty=j+dy[k]*l;
                     if(isin(tx,ty)){
                         if(b[i][j]==b[tx][ty]){
                             cnt++;
