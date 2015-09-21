@@ -2,8 +2,8 @@
 #include <stdio.h>
 //using namespace std;
 int b[20][20];
-int dx[]={0,0,1,1,1,-1,-1,-1};
-int dy[]={1,-1,1,-1,0,1,-1,0};
+int dx[]={-1,0,1,1};
+int dy[]={1,1,1,0};
 bool isin(int x, int y){
     return x>=0&&y>=0&&x<19&&y<19;
 }
@@ -11,7 +11,7 @@ void Solve(){
     for(int i=0;i<19;i++){
         for(int j=0;j<19;j++){
             if(b[i][j]==0)continue;
-            for(int k=0;k<8;k++){
+            for(int k=0;k<4;k++){
                 int cnt=0;
                 for(int l=0;l<6;l++){
                     int tx=i+dx[k]*l,ty=j+dy[k]*l;
