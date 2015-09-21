@@ -15,7 +15,11 @@ void Solve(){
                 int cnt=0;
                 for(int l=0;l<6;l++){
                     int tx=i+dx[k]*l,ty=j+dy[k]*l;
-                    cnt+=(isin(tx,ty)&&b[tx][ty]==b[i][j]);
+                    if(isin(tx,ty)){
+                        if(b[i][j]==b[tx][ty]){
+                            cnt++;
+                        }else break;
+                    }
                 }
                 if(cnt==5){
                     printf("%d\n%d %d\n",b[i][j],i+1,j+1);
