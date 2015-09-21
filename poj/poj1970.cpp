@@ -1,6 +1,6 @@
 //#include <bits/stdc++.h>
 #include <stdio.h>
-using namespace std;
+//using namespace std;
 int b[20][20];
 int dx[]={0,0,1,1,1,-1,-1,-1};
 int dy[]={1,-1,1,-1,0,1,-1,0};
@@ -13,7 +13,7 @@ void Solve(){
             if(b[i][j]==0)continue;
             for(int k=0;k<8;k++){
                 int cnt=0;
-                for(int l=0;l<5;l++){
+                for(int l=0;l<6;l++){
                     int tx=i+dx[k]*l,ty=j+dy[k]*l;
                     cnt+=(isin(tx,ty)&&b[tx][ty]==b[i][j]);
                 }
