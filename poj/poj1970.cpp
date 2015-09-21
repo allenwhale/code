@@ -1,4 +1,5 @@
-#include <bits/stdc++.h>
+//#include <bits/stdc++.h>
+#include <stdio.h>
 using namespace std;
 int b[20][20];
 int dx[]={0,0,1,1,1,-1,-1,-1};
