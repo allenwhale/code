@@ -42,10 +42,19 @@ void Solve(int N, int M){
         }
     }while(next_permutation(s, s+N));
 }
+void test(){
+    for(int i=1;i<=64*2;i++){
+        printf("%d ",i);
+        Solve(8,i);
+        if(i%4==0)puts("");
+    }
+}
 int main(){
     int N, M;
+    test();
     while(~scanf("%d%d",&N,&M)){
         Solve(N, M);
     }
+    
     return 0;
 }
