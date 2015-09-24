@@ -1,11 +1,11 @@
 #include <bits/stdc++.h>
 using namespace std;
 struct Var{
-    int a, b;
-    Var(int _a, int _b):a(_a), b(_b){}
+    long long a, b;
+    Var(long long _a, long long _b):a(_a), b(_b){}
     Var& update(){
         if(!a||!b)return *this;
-        int d = __gcd(a,b);
+        long long d = __gcd(a,b);
         a/=d;b/=d;
         return *this;
     }
@@ -30,7 +30,7 @@ int main(){
             }
         }
         m.update();
-        printf("%d/%d\n",m.a,m.b);
+        printf("%lld/%lld\n",m.a,m.b);
     }
 }
 
