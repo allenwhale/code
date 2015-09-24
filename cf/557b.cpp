@@ -1,6 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
-double c[100010];
+double c[200010];
 int main(){
     int N;
     double W;
