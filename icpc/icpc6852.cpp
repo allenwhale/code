@@ -4,7 +4,7 @@ int gcd(int a,int b){
     while((a%=b)&&(b%=a));
     return a+b;
 }
-int lcm(int a,int b){
+int lcm1(int a,int b){
     return (a/gcd(a,b))*b;
 }
 int cnt[7207200];
@@ -24,9 +24,8 @@ int main(){
             int a,b;
             scanf("%d%d",&a,&b);
             mp[a*17+b]++;
-            total=lcm(total,b);
+            total=lcm1(total,b);
         }
-        if(total>720720)while(1);
         memset(cnt,0,sizeof(cnt));
         for(int i=1;i<=16;i++){
             for(int j=i;j<=16;j++){
