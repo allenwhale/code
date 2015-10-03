@@ -5,6 +5,7 @@ int gcd(int a,int b){
     return a+b;
 }
 int lcm(int a,int b){
+    if(gcd(a,b)==0)while(1);
     return a/gcd(a,b)*b;
 }
 int cnt[7207200];
