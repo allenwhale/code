@@ -3,8 +3,8 @@ using namespace std;
 #define INF 1000000
 int N,M;
 int f[110][110];
-int dp1[110][110][60];
-int dp2[110][110][60];
+int dp1[110][110][110];
+int dp2[110][110][110];
 int DP1(int n,int m,int s){
     int &v=dp1[n][m][s];
     if(~v)return v;
