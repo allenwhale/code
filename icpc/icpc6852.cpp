@@ -26,6 +26,7 @@ int main(){
             mp[a*17+b]++;
             total=lcm(total,b);
         }
+        if(total>720720)while(1);
         memset(cnt,0,sizeof(cnt));
         for(int i=1;i<=16;i++){
             for(int j=i;j<=16;j++){
