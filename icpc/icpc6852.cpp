@@ -23,6 +23,7 @@ int main(){
         for(int i=0;i<N;i++){
             int a,b;
             scanf("%d%d",&a,&b);
+            if(b==0)b++;
             mp[a*17+b]++;
             total=lcm1(total,b);
         }
