@@ -78,5 +78,5 @@ int main(){
         }
         printf("%d\n", flow.Solve(source, target));
     }
-
+    return 0;
 }
