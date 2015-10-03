@@ -19,6 +19,7 @@ int main(){
         int N,M;
         scanf("%d%d",&N,&M);
         int total=1;
+        for(int i=0;i<400;++i)mp[i]=0;
         for(int i=0;i<N;i++){
             scanf("%d%d",&a[i],&b[i]);
             mp[a[i]*17+b[i]]++;
