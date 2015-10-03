@@ -26,6 +26,7 @@ int main(){
             mp[a*17+b]++;
             total=lcm(total,b);
         }
+        memset(cnt,0,sizeof(cnt));
         for(int i=1;i<=16;i++){
             for(int j=i;j<=16;j++){
                 int h=i*17+j;
@@ -36,6 +37,7 @@ int main(){
             }
         }
         int r=M%total,d=M/total;
+        memset(ans,0,sizeof(ans));
         for(int i=0;i<M&&i<total;i++){
             ans[cnt[i]]+=d+(i<r);
         }
