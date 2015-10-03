@@ -4,13 +4,6 @@ using namespace std;
 int w[110][60], c[110][110];
 int dp[110][60];
 int S,C;
-int DP(int x,int n){
-    if(dp[x][n]!=-INF)return dp[x][n];
-    for(int i=0;i<S;i++){
-        dp[x][n]=max(dp[x][n],DP(i,n-1)+w[x][C-n-1]-c[i][x]);
-    }
-    return dp[x][n];
-}
 int main(){
     int T;
     scanf("%d",&T);
@@ -26,10 +19,17 @@ int main(){
             for(int j=0;j<C;j++)
                 dp[i][j]=-INF;
         for(int i=0;i<S;i++)
-            dp[i][0]=w[i][C-1];
-        int ans=0;
+            dp[i][0]=w[i][0];
+        for(int j=1;j<C;j++){
+            for(int i=0;i<S;i++){
+                for(int k=0;k<S;k++){
+                    dp[i][j]=max(dp[i][j], dp[k][j-1]+w[i][j]-c[k][i]);
+                }
+            }
+        }
+        int ans=-INF;
         for(int i=0;i<S;i++)
-            ans=max(ans,DP(i,C-1));
+            ans=max(ans, dp[i][C-1]);
         printf("%d\n",ans);
     }
     return 0;
