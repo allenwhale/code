@@ -1,7 +1,11 @@
 #include <bits/stdc++.h>
 using namespace std;
+int gcd(int a,int b){
+    while((a%=b)&&(b%=a));
+    return a+b;
+}
 int lcm(int a,int b){
-    return a/__gcd(a,b)*b;
+    return a/gcd(a,b)*b;
 }
 int cnt[7207200],a[1000010],b[1000010];
 int ans[1000010];
