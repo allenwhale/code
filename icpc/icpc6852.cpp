@@ -3,8 +3,8 @@ using namespace std;
 int lcm(int a,int b){
     return a/__gcd(a,b)*b;
 }
-int cnt[720720+10],a[100010],b[100010];
-int ans[100010];
+int cnt[7207200],a[1000010],b[1000010];
+int ans[1000010];
 typedef pair<int,int> PI;
 int mp[3000];
 
