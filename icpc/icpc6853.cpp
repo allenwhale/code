@@ -5,7 +5,7 @@ int dp[110][60];
 int S,C;
 int DP(int x,int n){
     if(dp[x][n]!=-1)return dp[x][n];
-    dp[x][n]=0;
+    dp[x][n]=-10000000;
     for(int i=0;i<S;i++){
         dp[x][n]=max(dp[x][n],DP(i,n-1)+w[x][C-n-1]-c[i][x]);
     }
