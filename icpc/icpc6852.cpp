@@ -7,7 +7,7 @@ int gcd(int a,int b){
 int lcm(int a,int b){
     return a/gcd(a,b)*b;
 }
-int cnt[7207200],a[1000010],b[1000010];
+int cnt[7207200];
 int ans[1000010];
 typedef pair<int,int> PI;
 int mp[3000];
@@ -21,9 +21,10 @@ int main(){
         int total=1;
         for(int i=0;i<400;++i)mp[i]=0;
         for(int i=0;i<N;i++){
-            scanf("%d%d",&a[i],&b[i]);
-            mp[a[i]*17+b[i]]++;
-            total=lcm(total,b[i]);
+            int a,b;
+            scanf("%d%d",&a,&b);
+            mp[a*17+b]++;
+            total=lcm(total,b);
         }
         for(int i=1;i<=16;i++){
             for(int j=i;j<=16;j++){
