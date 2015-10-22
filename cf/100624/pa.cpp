@@ -36,8 +36,7 @@ void Solve(){
 	dfs((1<<N)-1, N);
 	sort(ans.begin(), ans.end());
 	if((int)ans.size()==0)printf("0");
-	for(auto v: ans)
-		printf("%d ",v+1);
+	for(auto v: ans)printf("%d ",v+1);
 	puts("");
 }
 int main(){
