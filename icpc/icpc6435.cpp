@@ -24,7 +24,7 @@ int Solve(){
 	for(int i=2;i<=M;i++){
 		ll sum=0, now=0;
 		for(int j=0;j<(int)T[i].size();j++){
-			while(T[i][j]>=T[i-1][now])sum+=dp[i-1][now++],sum%=MOD;
+			while(sum<(int)T[i-1].size()&&T[i][j]>=T[i-1][now])sum+=dp[i-1][now++],sum%=MOD;
 			dp[i][j]=sum;
 		}
 	}
