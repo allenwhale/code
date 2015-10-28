@@ -7,7 +7,7 @@ struct Edge{
 		return n.w>w;
 	}
 };
-int f[110], v[110];
+int f[210], v[210];
 int find(int x){
 	return x==f[x]?x:f[x]=find(f[x]);
 }
