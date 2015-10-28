@@ -2,8 +2,6 @@
 using namespace std;
 #define A 29
 #define M 370248451
-//#define A 6
-//#define M 100
 char s[500010];
 typedef long long ll;
 ll h[500010];
@@ -18,7 +16,6 @@ ll pow_mod(ll x, int n){
 }
 bool equal(int l1,int l2,int r1,int r2){
 	ll tl=(M+h[l2]-(h[l1-1]*pow_mod(A,l2-l1+1))%M)%M,tr=(M+h[r2]-(h[r1-1]*pow_mod(A,r2-r1+1))%M)%M;
-	//printf("%d %d %d %d %lld %lld\n", l1,l2,r1,r2,tl,tr);
 	return (tl)%M==tr;
 }
 int Solve(){
@@ -31,7 +28,6 @@ int Solve(){
 	int ans=0;
 	while(l<r){
 		int tr=r;
-		//printf("%d %d\n",l,r);
 		while((r-tr+1)+l-1<tr&&!equal(l,l+r-tr,tr,r)){
 			tr--;
 		}
