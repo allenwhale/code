@@ -3,36 +3,25 @@ using namespace std;
 #define MOD 1000000009
 typedef long long ll;
 ll dp[50010][210];
-vector<int> T[50010];
+int N,M,D;
+vector<int>A(N+1),B(M+1);
+int dfs(int x,int y){
+	while(x<N&&B[y]-A[x]>D)x++;
+	while(y<M&&A[x]-B[y]>D)y++;
+	ll &res=dp[x][A[x]-B[y]+100];
+	if(x==N||y==M)return res=0;
+	res=0;
+	if(A[x]+D>B[y])res+=dfs(x,y+1);
+	if(B[y]+D>A[x])res+=dfs(x+1,y);
+	return res;
+}
 int Solve(){
-	int N,M,D;
 	scanf("%d%d%d",&N,&M,&D);
-	vector<int>A(N+1),B(M+1);
-	A[0] = -1000000000;
-	for(int i=1;i<=N;i++)
+	for(int i=0;i<N;i++)
 		scanf("%d",&A[i]);
-	for(int i=1;i<=M;i++)
+	for(int i=0;i<M;i++)
 		scanf("%d",&B[i]);
-	for(int i=1,l=0;i<=M;i++){
-		T[i].clear();
-		while(l<=N&&!(A[l]<=B[i]))l++;
-		//printf("l = %d\n", l);
-		int tl=l;
-		while(tl<=N&&!(B[i]+D<=A[tl]))T[i].push_back(tl++);
-	}
-	for(int i=0;i<(int)T[1].size();i++)
-		dp[1][i]=1;
-	for(int i=2;i<=M;i++){
-		ll sum=0, now=0;
-		for(int j=0;j<(int)T[i].size();j++){
-			while(now<(int)T[i-1].size()&&T[i][j]>=T[i-1][now])sum+=dp[i-1][now++],sum%=MOD;
-			dp[i][j]=sum;
-		}
-	}
-	ll ans=0;
-	for(int i=0;i<(int)T[M].size();i++)
-		ans+=dp[M][i],ans%=MOD;
-	return (int)ans;
+	return dfs(0,0);
 }
 int main(){
 	int T;
