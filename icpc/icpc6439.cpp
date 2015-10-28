@@ -7,7 +7,7 @@ using namespace std;
 char s[500010];
 typedef long long ll;
 ll h[500010];
-ll pow_mod(int x, int n){
+ll pow_mod(ll x, int n){
 	ll res=1;
 	while(n){
 		if(n&1)res=(res*x)%M;
