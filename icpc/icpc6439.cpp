@@ -1,9 +1,9 @@
 #include <bits/stdc++.h>
 using namespace std;
-//#define A 29
-//#define M 370248451
-#define A 6
-#define M 100
+#define A 29
+#define M 370248451
+//#define A 6
+//#define M 100
 char s[500010];
 typedef long long ll;
 ll h[500010];
