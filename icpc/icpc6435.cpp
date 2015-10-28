@@ -3,6 +3,7 @@ using namespace std;
 #define MOD 1000000009
 typedef long long ll;
 ll dp[50010][210];
+vector<int> T[50010];
 int Solve(){
 	int N,M,D;
 	scanf("%d%d%d",&N,&M,&D);
@@ -12,8 +13,8 @@ int Solve(){
 		scanf("%d",&A[i]);
 	for(int i=1;i<=M;i++)
 		scanf("%d",&B[i]);
-	vector<int> T[50010];
 	for(int i=1,l=0;i<=M;i++){
+		T[i].clear();
 		while(l<=N&&!(A[l]<=B[i]))l++;
 		//printf("l = %d\n", l);
 		int tl=l;
@@ -24,7 +25,7 @@ int Solve(){
 	for(int i=2;i<=M;i++){
 		ll sum=0, now=0;
 		for(int j=0;j<(int)T[i].size();j++){
-			while(sum<(int)T[i-1].size()&&T[i][j]>=T[i-1][now])sum+=dp[i-1][now++],sum%=MOD;
+			while(now<(int)T[i-1].size()&&T[i][j]>=T[i-1][now])sum+=dp[i-1][now++],sum%=MOD;
 			dp[i][j]=sum;
 		}
 	}
