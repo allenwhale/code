@@ -22,7 +22,7 @@ int main(){
                 int end=B-(abs(B-j)>>1)-1;
                 dp[i][j]=(get(0,end)-dp[i-1][j]+MOD)%MOD;
             }else{
-                int start=B-(abs(B-j)>>1)+1;
+                int start=B-(abs(B+j)>>1)+1;
                 dp[i][j]=(get(start-1, N)-dp[i-1][j]+MOD)%MOD;
             }
         }
