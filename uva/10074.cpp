@@ -10,7 +10,7 @@ typedef pair<int,int> PI;
 int Solve(){
     int N,M;
     scanf("%d%d",&N,&M);
-    if(N==0)return -1;
+    if(N==0&&M==0)return -1;
     for(int i=1;i<=N;i++){
         for(int j=1;j<=M;j++){
             scanf("%d",&mp[i][j]);
@@ -19,7 +19,7 @@ int Solve(){
     memset(h,0,sizeof(h));
     for(int i=1;i<=N;i++){
         for(int j=1;j<=M;j++){
-            h[i][j]=mp[i][j]==1?h[i-1][j]+1:0;
+            h[i][j]=(mp[i][j]==0)?h[i-1][j]+1:0;
         }
     }
     for(int i=1;i<=N;i++){
