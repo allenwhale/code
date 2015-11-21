@@ -25,7 +25,7 @@ void Solve(){
             break;
         PI tmp=pq.top();
         pq.pop();
-        now=tmp.s;
+        now=tmp.f;
         ans.push_back(tmp);
     }
     if(now<M)printf("0\n");
