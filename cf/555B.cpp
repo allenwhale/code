@@ -38,8 +38,8 @@ int main(){
             puts("No");
             return 0;
         }
-        bridge.erase(it);
         ans[gap[i].s-1]=it->s;
+        bridge.erase(it);
     }
     puts("Yes");
     for(int i=0;i<N-1;i++)
