@@ -17,8 +17,10 @@ void Solve(){
     vector<PI> ans;
     int now=0, last=0;
     while(now<M){
-        while(last<(int)s.size()&&s[last].f<=now)
-            pq.push(s[last++]);
+        while(last<(int)s.size()&&s[last].f<=now){
+            pq.push({s[last].s,s[last].f});
+            last++;
+        }
         if(pq.empty())
             break;
         PI tmp=pq.top();
@@ -26,20 +28,20 @@ void Solve(){
         now=tmp.s;
         ans.push_back(tmp);
     }
-    if(now<M)puts("0");
+    if(now<M)printf("0\n");
     else{
         printf("%d\n", (int)ans.size());
         for(PI seg: ans)
-            printf("%d %d\n", seg.f, seg.s);
+            printf("%d %d\n", seg.s, seg.f);
     }
 
 }
 int main(){
-	int T;
-	scanf("%d",&T);
-	while(T--){
+    int T;
+    scanf("%d",&T);
+    while(T--){
         Solve();
-		if(T)puts("");
-	}
-	return 0;
+        if(T)puts("");
+    }
+    return 0;
 }
