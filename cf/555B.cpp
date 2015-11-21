@@ -39,10 +39,10 @@ int main(){
             return 0;
         }
         bridge.erase(it);
-        ans[gap[i].s]=it->s;
+        ans[gap[i].s-1]=it->s;
     }
     puts("Yes");
-    for(int i=1;i<N;i++)
-        printf("%d%c",ans[i],i==N-1?'\n':' ');
+    for(int i=0;i<N-1;i++)
+        printf("%d%c",ans[i],i==N-2?'\n':' ');
     return 0;
 }
