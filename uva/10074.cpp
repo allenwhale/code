@@ -23,23 +23,14 @@ int Solve(){
         }
     }
     for(int i=1;i<=N;i++){
-        stack<PI>st;
-        st.push({-10000000, 0});
+        h[i][0]=h[i][M+1]=-1;
+        for(int j=1;j<=M;j++)
+            l[i][j]=r[i][j]=j;
         for(int j=1;j<=M;j++){
-            while(st.size()&&st.top().f>=h[i][j])
-                st.pop();
-            l[i][j]=st.top().s+1;
-            st.push({h[i][j],j});
+            while(h[i][j]<=h[i][l[i][j]-1])l[i][j]=l[i][l[i][j]-1];
         }
-    }
-    for(int i=1;i<=N;i++){
-        stack<PI>st;
-        st.push({-10000000, N+1});
         for(int j=M;j>=1;j--){
-            while(st.size()&&st.top().f>=h[i][j])
-                st.pop();
-            r[i][j]=st.top().s-1;
-            st.push({h[i][j],j});
+            while(h[i][j]<=h[i][r[i][j]+1])r[i][j]=r[i][r[i][j]+1];
         }
     }
     int ans=0;
