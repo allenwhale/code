@@ -22,7 +22,11 @@ int main(){
     for(int i=1;i<(int)island.size();i++){
         gap.push_back({{island[i].f-island[i-1].s,island[i].s-island[i-1].f},i});
     }
-    sort(gap.begin(), gap.end());
+    sort(gap.begin(), gap.end(), [](const PII &a, const PII &b){
+        if(a.f.s==b.f.s)
+            return a.f.f<b.f.f;
+        return a.f.s<b.f.s;
+    });
     for(int i=0;i<M;i++){
         ll b;
         scanf("%lld", &b);
