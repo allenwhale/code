@@ -32,10 +32,10 @@ int Solve(){
             st.push({h[i][j],j});
         }
     }
-    for(int i=N;i>=1;i--){
+    for(int i=1;i<=N;i++){
         stack<PI>st;
         st.push({-10000000, N+1});
-        for(int j=1;j<=M;j++){
+        for(int j=M;j>=1;j--){
             while(st.size()&&st.top().f>=h[i][j])
                 st.pop();
             r[i][j]=st.top().s-1;
