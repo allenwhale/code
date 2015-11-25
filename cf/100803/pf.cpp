@@ -9,7 +9,7 @@ const int INF=0x3f3f3f3f;
 int N,M;
 vector<PII> edge;
 int p[510];
-bool vis[510]={false};
+bool vis[50010]={false};
 int find(int x){
     return x==p[x]?x:p[x]=find(p[x]);
 }
