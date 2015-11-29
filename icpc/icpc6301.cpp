@@ -83,12 +83,10 @@ int Solve(){
         for(int i=0;i<2;i++){
             int now=q[i].front();q[i].pop();
             if(dis[1-i][now]!=INF){
-                ans=dis[i][now]+dis[1-i][now];
-                return ans;
+                return dis[i][now]+dis[1-i][now];
             }
-            vector<int> b=decode(now);
-            int zero=find_zero(b);
-            vector<int>w=b;
+            vector<int> w=decode(now);
+            int zero=find_zero(w);
             for(int j=0;j<(int)dir[i][zero].size();j++){
                 swap(w[zero], w[dir[i][zero][j]]);
                 int ew=encode(w);
@@ -101,7 +99,6 @@ int Solve(){
         }
     }
     return ans;
-
 }
 
 int main(){
