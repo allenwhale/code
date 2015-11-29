@@ -74,7 +74,7 @@ int Solve(){
             int now=q[i].front();q[i].pop();
             if(dis[1-i][now]!=INF){
                 ans=dis[i][now]+dis[1-i][now];
-                if(ans>31)while(1);
+                while(ans>31);
                 return ans;
             }
             vector<int> b=decode(now);
@@ -83,11 +83,11 @@ int Solve(){
             for(int j=0;j<(int)dir[zero].size();j++){
                 swap(w[zero], w[dir[zero][j]]);
                 int ew=encode(w);
+                swap(w[zero], w[dir[zero][j]]);
                 if(dis[i][ew]>dis[i][now]+1){
                     dis[i][ew]=dis[i][now]+1;
                     q[i].push(ew);
                 }
-                swap(w[zero], w[dir[zero][j]]);
             }
         }
     }
