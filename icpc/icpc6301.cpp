@@ -1,6 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
-int f[] = {1, 1, 2, 6, 24, 120, 720, 5040, 40320, 40320};
+int f[] = {1, 1, 2, 6, 24, 120, 720, 5040, 40320};
 vector<vector<int> > dir={
     {1, 3}, 
     {0, 2, 3, 4},
@@ -68,29 +68,29 @@ int Solve(){
             scanf("%d",&b[i][j]);
     memset(dis,0x3f,sizeof(dis));
     dis[0][e[0]]=dis[1][e[1]]=0;
-    priority_queue<PI, vector<PI>, greater<PI>> pq[2];
-    pq[0].push({0,e[0]});
-    pq[1].push({0,e[1]});
+    queue<int> q[2];
+    q[0].push(e[0]);
+    q[1].push(e[1]);
     int ans=-1;
-    while(pq[0].size()&&pq[1].size()){
+    while(q[0].size()&&q[1].size()){
         for(int i=0;i<2;i++){
-            PI now=pq[i].top();pq[i].pop();
+            int now=q[i].front();q[i].pop();
             //printf("%d %d %d %d\n", i, now.f, now.s, dis[i^1][now.s]);
             //print(now.s);
             //if(now.f>2)return -1;
-            if(dis[i^1][now.s]!=INF){
-                ans=dis[i][now.s]+dis[i^1][now.s];
+            if(dis[i^1][now]!=INF){
+                ans=dis[i][now]+dis[i^1][now];
                 return ans;
             }
-            vector<int> b=decode(now.s);
+            vector<int> b=decode(now);
             int zero=find_zero(b);
             vector<int>w=b;
             for(int j=0;j<(int)dir[zero].size();j++){
                 swap(w[zero], w[dir[zero][j]]);
                 int ew=encode(w);
-                if(dis[i][ew]>dis[i][now.s]+1){
-                    dis[i][ew]=dis[i][now.s]+1;
-                    pq[i].push({dis[i][ew],ew});
+                if(dis[i][ew]>dis[i][now]+1){
+                    dis[i][ew]=dis[i][now]+1;
+                    q[i].push(ew);
                 }
                 swap(w[zero], w[dir[zero][j]]);
             }
