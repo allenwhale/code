@@ -91,6 +91,7 @@ int Solve(){
             }
         }
     }
+    puts("WA");
     return ans;
 
 }
