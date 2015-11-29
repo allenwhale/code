@@ -10,7 +10,8 @@ vector<vector<int> > dir={
     {2, 4, 7, 8},
     {3, 7},
     {4, 6, 8},
-    {5, 7}};
+    {5, 7}
+};
 
 int find_zero(const vector<int> &b){
     for(int i=0;i<(int)b.size();i++)
@@ -56,9 +57,6 @@ void print(int v){
 
 int dis[2][362880+20];
 const int INF=0x3f3f3f3f;
-typedef pair<int,int> PI;
-#define f first
-#define s second 
 int Solve(){
     vector<int> b[2];
     int e[2];
@@ -68,34 +66,51 @@ int Solve(){
             scanf("%d",&b[i][j]);
     memset(dis,0x3f,sizeof(dis));
     dis[0][e[0]]=dis[1][e[1]]=0;
-    queue<int> q[2];
-    q[0].push(e[0]);
-    q[1].push(e[1]);
+    //queue<int> q[2];
+    //q[0].push(e[0]);
+    //q[1].push(e[1]);
     int ans=-1;
-    while(q[0].size()&&q[1].size()){
-        for(int i=0;i<2;i++){
-            int now=q[i].front();q[i].pop();
-            //printf("%d %d %d %d\n", i, now.f, now.s, dis[i^1][now.s]);
-            //print(now.s);
-            //if(now.f>2)return -1;
-            if(dis[i^1][now]!=INF){
-                ans=dis[i][now]+dis[i^1][now];
-                return ans;
+    queue<int>q;
+    q.push(e[0]);
+    while(!q.empty()){
+        int now=q.front();q.pop();
+        if(now==e[1]){
+            ans=dis[0][now];
+            break;
+        }
+        vector<int> w=decode(now);
+        int z=find_zero(w);
+        for(int j=0;j<(int)dir[z].size();j++){
+            swap(w[z],w[dir[z][j]]);
+            int ew=encode(w);
+            if(dis[0][ew]>dis[0][now]+1){
+                dis[0][ew]=dis[0][now]+1;
+                q.push(ew);
             }
-            vector<int> b=decode(now);
-            int zero=find_zero(b);
-            vector<int>w=b;
-            for(int j=0;j<(int)dir[zero].size();j++){
-                swap(w[zero], w[dir[zero][j]]);
-                int ew=encode(w);
-                if(dis[i][ew]>dis[i][now]+1){
-                    dis[i][ew]=dis[i][now]+1;
-                    q[i].push(ew);
-                }
-                swap(w[zero], w[dir[zero][j]]);
-            }
+            swap(w[z],w[dir[z][j]]);
         }
     }
+    //while(q[0].size()&&q[1].size()){
+        //for(int i=0;i<2;i++){
+            //int now=q[i].front();q[i].pop();
+            //if(dis[1-i][now]!=INF){
+                //ans=dis[i][now]+dis[1-i][now];
+                //return ans;
+            //}
+            //vector<int> b=decode(now);
+            //int zero=find_zero(b);
+            //vector<int>w=b;
+            //for(int j=0;j<(int)dir[zero].size();j++){
+                //swap(w[zero], w[dir[zero][j]]);
+                //int ew=encode(w);
+                //if(dis[i][ew]>dis[i][now]+1){
+                    //dis[i][ew]=dis[i][now]+1;
+                    //q[i].push(ew);
+                //}
+                //swap(w[zero], w[dir[zero][j]]);
+            //}
+        //}
+    //}
     return ans;
 
 }
