@@ -45,24 +45,20 @@ void Solve(){
         dis[s]=0;
         while(!q.empty()){
             int now=q.front();
-            //printf("now %d\n", now);
             q.pop();
             for(int i=0;i<(int)vc[now].size();i++){
                 PI e=vc[now][i];
                 if(dis[e.s]>dis[now]+!(car[(int)name[now]]&&car[(int)name[e.s]])){
-                    //printf("go %d\n", e.s);
                     dis[e.s]=dis[now]+!(car[(int)name[now]]&&car[(int)name[e.s]]);
                     pre[e.s]={e.f,now};
                     q.push(e.s);
                 }else if(dis[e.s]==dis[now]+!(car[(int)name[now]]&&car[(int)name[e.s]])&&pre[e.s].f>e.f){
-                    //printf("go %d\n", e.s);
                     pre[e.s]={e.f,now};
                 }
             }
         }
         vector<int> ans;
         for(int t=e;t!=s;t=pre[t].s){
-            //printf("%d %d\n", t, pre[t].s);
             if(!(car[(int)name[t]]&&car[(int)name[pre[t].s]]))
                 ans.push_back(pre[t].f);
         }
