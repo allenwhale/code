@@ -1,6 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
-int f[] = {1, 1, 2, 6, 24, 120, 720, 5040, 40320};
+int f[] = {1, 1, 2, 6, 24, 120, 720, 5040, 40320, 362880};
 vector<vector<int> > dir={
     {1, 3}, 
     {0, 2, 3, 4},
@@ -10,8 +10,7 @@ vector<vector<int> > dir={
     {2, 4, 7, 8},
     {3, 7},
     {4, 6, 8},
-    {5, 7}
-};
+    {5, 7}};
 
 int find_zero(const vector<int> &b){
     for(int i=0;i<(int)b.size();i++)
@@ -66,51 +65,32 @@ int Solve(){
             scanf("%d",&b[i][j]);
     memset(dis,0x3f,sizeof(dis));
     dis[0][e[0]]=dis[1][e[1]]=0;
-    //queue<int> q[2];
-    //q[0].push(e[0]);
-    //q[1].push(e[1]);
+    queue<int> q[2];
+    q[0].push(e[0]);
+    q[1].push(e[1]);
     int ans=-1;
-    queue<int>q;
-    q.push(e[0]);
-    while(!q.empty()){
-        int now=q.front();q.pop();
-        if(now==e[1]){
-            ans=dis[0][now];
-            break;
-        }
-        vector<int> w=decode(now);
-        int z=find_zero(w);
-        for(int j=0;j<(int)dir[z].size();j++){
-            swap(w[z],w[dir[z][j]]);
-            int ew=encode(w);
-            if(dis[0][ew]>dis[0][now]+1){
-                dis[0][ew]=dis[0][now]+1;
-                q.push(ew);
+    while(q[0].size()&&q[1].size()){
+        for(int i=0;i<2;i++){
+            int now=q[i].front();q[i].pop();
+            if(dis[1-i][now]!=INF){
+                ans=dis[i][now]+dis[1-i][now];
+                if(ans>31)while(1);
+                return ans;
             }
-            swap(w[z],w[dir[z][j]]);
+            vector<int> b=decode(now);
+            int zero=find_zero(b);
+            vector<int>w=b;
+            for(int j=0;j<(int)dir[zero].size();j++){
+                swap(w[zero], w[dir[zero][j]]);
+                int ew=encode(w);
+                if(dis[i][ew]>dis[i][now]+1){
+                    dis[i][ew]=dis[i][now]+1;
+                    q[i].push(ew);
+                }
+                swap(w[zero], w[dir[zero][j]]);
+            }
         }
     }
-    //while(q[0].size()&&q[1].size()){
-        //for(int i=0;i<2;i++){
-            //int now=q[i].front();q[i].pop();
-            //if(dis[1-i][now]!=INF){
-                //ans=dis[i][now]+dis[1-i][now];
-                //return ans;
-            //}
-            //vector<int> b=decode(now);
-            //int zero=find_zero(b);
-            //vector<int>w=b;
-            //for(int j=0;j<(int)dir[zero].size();j++){
-                //swap(w[zero], w[dir[zero][j]]);
-                //int ew=encode(w);
-                //if(dis[i][ew]>dis[i][now]+1){
-                    //dis[i][ew]=dis[i][now]+1;
-                    //q[i].push(ew);
-                //}
-                //swap(w[zero], w[dir[zero][j]]);
-            //}
-        //}
-    //}
     return ans;
 
 }
