@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 int f[] = {1, 1, 2, 6, 24, 120, 720, 5040, 40320, 362880};
-vector<vector<int> > dir={
+vector<vector<int> > dir[]={{
     {1, 3}, 
     {0, 2, 3, 4},
     {1, 4, 5},
@@ -10,7 +10,17 @@ vector<vector<int> > dir={
     {2, 4, 7, 8},
     {3, 7},
     {4, 6, 8},
-    {5, 7}};
+    {5, 7}}, {
+    {1, 3},
+    {0, 2, 4},
+    {1, 5},
+    {0, 1, 4, 6},
+    {1, 2, 3, 5, 7},
+    {2, 4, 8},
+    {3, 4, 7},
+    {4, 5, 6, 8},
+    {5, 7}
+}};
 
 int find_zero(const vector<int> &b){
     for(int i=0;i<(int)b.size();i++)
@@ -74,16 +84,15 @@ int Solve(){
             int now=q[i].front();q[i].pop();
             if(dis[1-i][now]!=INF){
                 ans=dis[i][now]+dis[1-i][now];
-                while(ans>31);
                 return ans;
             }
             vector<int> b=decode(now);
             int zero=find_zero(b);
             vector<int>w=b;
-            for(int j=0;j<(int)dir[zero].size();j++){
-                swap(w[zero], w[dir[zero][j]]);
+            for(int j=0;j<(int)dir[i][zero].size();j++){
+                swap(w[zero], w[dir[i][zero][j]]);
                 int ew=encode(w);
-                swap(w[zero], w[dir[zero][j]]);
+                swap(w[zero], w[dir[i][zero][j]]);
                 if(dis[i][ew]>dis[i][now]+1){
                     dis[i][ew]=dis[i][now]+1;
                     q[i].push(ew);
@@ -91,7 +100,6 @@ int Solve(){
             }
         }
     }
-    puts("WA");
     return ans;
 
 }
