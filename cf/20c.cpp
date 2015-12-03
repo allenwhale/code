@@ -30,6 +30,10 @@ int main(){
             }
         } 
     }
+    if(dis[N] == 0x3f3f3f3f){
+        puts("-1");
+        return 0;
+    }
     vector<int> ans;
     for(int t=N;~t;t=pre[t])
         ans.push_back(t); 
