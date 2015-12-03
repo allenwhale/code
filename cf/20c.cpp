@@ -18,7 +18,7 @@ int main(){
     memset(pre, -1, sizeof(pre));
     priority_queue<PI, vector<PI>, greater<PI> > pq;
     dis[1] = 0;
-    pq.push({1, 0});
+    pq.push({0, 1});
     while(!pq.empty()){
         PI now = pq.top(); pq.pop();
         if(now.s > dis[now.f]) continue;
@@ -27,7 +27,7 @@ int main(){
             if(dis[e.f] > dis[now.f] + e.s){
                 dis[e.f] = dis[now.f] + e.s;
                 pre[e.f] = now.f;
-                pq.push({e.f, dis[e.f]});
+                pq.push({dis[e.f], e.f});
             }
         } 
     }
