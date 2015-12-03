@@ -1,12 +1,13 @@
 #include <bits/stdc++.h>
 using namespace std;
-int mp[310][310];
+typedef long long ll;
+ll mp[310][310];
 int N;
 int main(){
     scanf("%d", &N);
     for(int i=0;i<N;i++)
         for(int j=0;j<N;j++)
-            scanf("%d", &mp[i][j]);
+            scanf("%I64d", &mp[i][j]);
     int Q;
     scanf("%d", &Q);
     while(Q--){
@@ -21,11 +22,11 @@ int main(){
                     mp[i][j] = mp[j][i] = min(mp[i][j], mp[j][a] + c + mp[b][i]);
                 }
         }
-        int ans = 0;
+        ll ans = 0;
         for(int i=0;i<N;i++)
             for(int j=i+1;j<N;j++)
                 ans += mp[i][j];
-        printf("%d ", ans);
+        printf("%I64d ", ans);
     }
     puts("");
     return 0;
