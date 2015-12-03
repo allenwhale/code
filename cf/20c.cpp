@@ -22,6 +22,7 @@ int main(){
     while(!pq.empty()){
         PI now = pq.top(); pq.pop();
         if(now.s > dis[now.f]) continue;
+        if(now.f == N)break;
         for(PI e: vc[now.f]){
             if(dis[e.f] > dis[now.f] + e.s){
                 dis[e.f] = dis[now.f] + e.s;
