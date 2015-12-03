@@ -21,12 +21,12 @@ int main(){
     pq.push({0, 1});
     while(!pq.empty()){
         PI now = pq.top(); pq.pop();
-        if(now.s > dis[now.f]) continue;
-        if(now.f == N)break;
-        for(PI e: vc[now.f]){
-            if(dis[e.f] > dis[now.f] + e.s){
-                dis[e.f] = dis[now.f] + e.s;
-                pre[e.f] = now.f;
+        if(now.f > dis[now.s]) continue;
+        if(now.s == N)break;
+        for(PI e: vc[now.s]){
+            if(dis[e.f] > dis[now.s] + e.s){
+                dis[e.f] = dis[now.s] + e.s;
+                pre[e.f] = now.s;
                 pq.push({dis[e.f], e.f});
             }
         } 
