@@ -2,9 +2,11 @@
 using namespace std;
 #define f first
 #define s second
-typedef pair<int, int> PI;
+typedef long long ll;
+typedef pair<ll, int> PI;
 vector<PI> vc[200010];
-int dis[200010], pre[200010];
+ll dis[200010];
+int pre[200010];
 int main(){
     int N, M;
     scanf("%d%d", &N, &M);
@@ -15,6 +17,7 @@ int main(){
         vc[b].push_back({a, c});
     }
     memset(dis, 0x3f, sizeof(dis));
+    ll INF = dis[0];
     memset(pre, -1, sizeof(pre));
     priority_queue<PI, vector<PI>, greater<PI> > pq;
     dis[1] = 0;
@@ -31,7 +34,7 @@ int main(){
             }
         } 
     }
-    if(dis[N] == 0x3f3f3f3f){
+    if(dis[N] == INF){
         puts("-1");
         return 0;
     }
