@@ -9,11 +9,8 @@ double calc(double d,double np,double nh){
     if(fabs(np)<=1e-6)return 1e9;
     double a=nh/(sqr(np-d/2)-sqr(d/2));
     double b=-a*sqr(d/2);
-    //printf("p=%f h=%f\n",np,nh);
-    //printf("y=%f*(x-%f)^2+%f\n", a,d/2,b);
     double vx2=-0.5/a;
     double vy2=a*a*d*d*vx2;
-    //printf("%f %f\n", sqrt(vx2), sqrt(vy2));
     if(vy2<vx2){
         return sqrt(d);
     }
