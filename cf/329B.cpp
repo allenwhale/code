@@ -13,7 +13,7 @@ bool isin(int x, int y){
     return x >= 0 && y >= 0 && x < N && y < M;
 }
 int main(){
-    memset(dis, 0x3f, sizeof(dis));
+    memset(dis, 0, sizeof(dis));
     scanf("%d%d", &N, &M);
     for(int i=0;i<N;i++)
         scanf("%s", mp[i]);
@@ -24,25 +24,24 @@ int main(){
                 s = {i, j};
     queue<PI> q;
     q.push(s);
-    dis[s.f][s.s] = 0;
+    dis[s.f][s.s] = 1;
     int max_dis = 0x3f3f3f3f;
     int ans = 0;
     while(!q.empty()){
         PI now = q.front(); q.pop();
         if(dis[now.f][now.s] > max_dis)
             break;
-        if(isdigit(mp[now.f][now.s]))
-            ans += mp[now.f][now.s] - '0';
         for(int i=0;i<4;i++){
             int tx = now.f + dx[i], ty = now.s + dy[i];
             if(!isin(tx, ty)) continue;
-            if(mp[tx][ty] == 'T') continue;
-            if(dis[tx][ty] > dis[now.f][now.s]){
+            if(mp[tx][ty] == 'T' || dis[tx][ty]) continue;
+            if(isdigit(mp[tx][ty])){
                 dis[tx][ty] = dis[now.f][now.s] + 1;
+                ans += mp[tx][ty] - '0';
                 q.push({tx, ty});
             }
             if(mp[tx][ty] == 'S')
-                max_dis = dis[tx][ty];
+                max_dis = dis[tx][ty] = dis[now.f][now.s];
         }
     }
     printf("%d\n", ans);
