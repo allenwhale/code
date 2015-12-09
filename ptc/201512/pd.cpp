@@ -1,6 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
-#define HASH_SIZE 1024
+#define HASH_SIZE 181081
 #define C 131
 char s[10000];
 char new_s[510][510];
