@@ -37,6 +37,8 @@ int main(){
                 h[nh[0][j]].push_back(new_s[j][i]);
                 use.insert(nh[0][j]);
             }
+            for(int u: use)
+                sort(h[u].begin(), h[u].end());
         }
         for(int i=0;i<now;i++)
             s[i] = new_s[N-1][i];
