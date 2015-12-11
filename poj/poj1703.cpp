@@ -1,5 +1,6 @@
-#include <bits/stdc++.h>
-using namespace std;
+//#include <bits/stdc++.h>
+#include <stdio.h>
+//using namespace std;
 #define I(n) ((n)+N)
 int p[200010];
 int N, M;
