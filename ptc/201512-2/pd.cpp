@@ -29,7 +29,7 @@ void Solve(){
     for(int i=0;i<510;++i)mat[i].clear();
     for(int i=0;o[i]!='\0';++i){
         d[0][cti(o[i])]++;
-        mat[k].push_back(cti(o[i]));
+        mat[i].push_back(cti(o[i]));
     }
     memset(sid,0,sizeof(sid));
     for(int i=1;i<k;++i){
@@ -52,6 +52,7 @@ void Solve(){
         m=cnt;
     }
     idx = 2;
+    k*=2;
     for(int i=0;i<k;i++){
         cnt=0;
         idx = i;
