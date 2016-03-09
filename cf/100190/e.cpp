@@ -1,44 +1,26 @@
 #include <bits/stdc++.h>
 using namespace std;
-typedef unsigned long long ll;
-int cas = 0;
-int N, Q;
-int w[1000], m[1000];
-ll b[1000];
-ll dp[1000];
-bool Solve(){
-    scanf("%d%d", &N, &Q);
-    if(N == 0)return false;
-    for(int i=0;i<N;i++){
-        scanf("%d%d", &w[i], &m[i]);
-    }
-    for(int i=0;i<N;i++){
-        b[i] = 0;
-        memset(dp, 0, sizeof(dp));
-        dp[0] = 1;
-        for(int j=0;j<N;j++){
-            int mm = m[i];
-            if(i == j)mm--;
+#define f first
+#define s second
+typedef long long ll;
+typedef pair<int, int> PII;
+ll ans[64];
+PII vote[64];
+ll dp[64];
 
-            for(int l=0;l<mm;l++){
-                for(int k=Q;k>=w[j];k--){
-                    dp[k] += dp[k-w[j]];
-                }
-            }
-        }
-        for(int j=0;j<=Q;j++){
-            if(j < Q && j+w[i] >= Q)
-                b[i] += dp[j];
-        }
-    }
-    printf("Case %d: ", ++cas);
-    for(int i=0;i<N;i++)
-        printf("%llu ", b[i]);
-    printf("\n");
-    return true;
-}
 int main(){
-    while(Solve());
-    return 0;
-}
+    int n, m, t = 1;
+    while(scanf("%d%d", &n, &m),n||m){
+        for(int i = 0 ; i < n ; i++){
+            scanf("%d%d", &vote[i].f, &vote[i].s);
+        }
+        memset(ans, 0, sizeof(ans));
+        for(int i = 0 ; i < n ; i++){
+            vote[i].s--;
+            memset(dp, 0, sizeof(dp));
+            dp[0] = 1;
+            for(int r = 0 ; r < n ; r++){
+                for(int j = 0 ; j < vote[r].s ; j++){
+                    for(int k = m ; k >= vote[r].f ; k--)
+                        dp[k] += dp[k-vote[r].f];
 

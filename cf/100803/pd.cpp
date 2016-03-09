@@ -8,7 +8,6 @@ double p[20],h[20];
 double calc(double d,double np,double nh){
     if(fabs(np)<=1e-6)return 1e9;
     double a=nh/(sqr(np-d/2)-sqr(d/2));
-    double b=-a*sqr(d/2);
     double vx2=-0.5/a;
     double vy2=a*a*d*d*vx2;
     if(vy2<vx2){
