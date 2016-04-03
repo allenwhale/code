@@ -2,7 +2,7 @@
 using namespace std;
 #define MAXN 362880
 typedef pair<int, int> PI;
-int factorial[] = {1, 1, 2, 6, 24, 120, 720, 5040, 40320, 362880, 3628800, 39916800, 479001600};
+int factorial[] = {1, 1, 2, 6, 24, 120, 720, 5040, 40320, 362880, 3628800};
 vector<int> now(9);
 void decode(int x, int n){
     vector<bool> used(n+1, false);
@@ -46,15 +46,18 @@ bool isin(int x, int y){
 }
 int Solve(){
     memset(dist, 0x3f, sizeof(dist));
-    vector<int> start(9);
+    vector<int> start(9), target(9);
     int zero = 0;
     for(int i=0;i<9;i++){
         scanf("%d", &start[i]);
         if(start[i] == 0) zero = i;
     }
-    if(solvable(start) == false) return -1;
     int start_t = encode(start);
-    int target_t = encode({1, 2, 3, 4, 5, 6, 7, 8, 0});
+    for(int i=0;i<9;i++){
+        scanf("%d", &target[i]);
+    }
+    if(solvable(start) != solvable(target)) return -1;
+    int target_t = encode(target);
     dist[start_t] = 0;
     queue<PI> q;
     q.push({start_t, zero});
@@ -72,14 +75,13 @@ int Solve(){
         for(int i=0;i<4;i++){
             int tx = nx + dx[i], ty = ny + dy[i];
             if(isin(tx, ty) == false) continue;
-            vector<int> &next = now;
-            swap(next[zero], next[tx*3+ty]);
-            int next_t = encode(next);
+            swap(now[zero], now[tx*3+ty]);
+            int next_t = encode(now);
             if(dist[next_t] == 0x3f3f3f3f){
                 dist[next_t] = dist[now_t] + 1;
                 q.push({next_t, tx*3+ty});
             }
-            swap(next[zero], next[tx*3+ty]);
+            swap(now[zero], now[tx*3+ty]);
         }
     }
     //printf("mx %d, cnt %d\n", mx, cnt);

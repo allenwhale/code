@@ -1,0 +1,20 @@
+2 3 5
+1 A 00:10:05 Yes
+2 A 00:15:15 No - Wrong Answer
+1 C 01:01:01 Yes
+2 B 02:20:00 Yes
+1 B 03:10:00 Yes
+2 3 5
+1 A 00:10:05 Yes
+2 A 00:15:15 No - Wrong Answer
+1 C 01:01:01 Yes
+2 B 02:20:00 Yes
+1 B 03:10:00 No - Wrong Answer
+2 3 5
+1 A 00:10:05 Yes
+1 C 01:01:01 Yes
+2 A 00:15:15 No - Wrong Answer
+1 B 03:10:00 Yes
+2 B 04:20:00 Yes
+0 0 0
+

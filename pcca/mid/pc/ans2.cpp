@@ -45,13 +45,16 @@ bool solvable(const vector<int> &a){
 }
 int Solve(){
     memset(dist, 0x3f, sizeof(dist));
-    vector<int> start(9);
+    vector<int> start(9), target(9);
     for(int i=0;i<9;i++)
         scanf("%d", &start[i]);
-    if(solvable(start) == false)return -1;
     int start_t = encode(start);
     //printf("start_t %d\n", start_t);
-    int target_t = encode({1, 2, 3, 4, 5, 6, 7, 8, 0});
+    for(int i=0;i<9;i++){
+        scanf("%d", &target[i]);
+    }
+    if(solvable(start) != solvable(target)) return -1;
+    int target_t = encode(target);
     if(start_t == target_t) return 0;
     dist[0][start_t] = 0;
     dist[1][target_t] = 0;

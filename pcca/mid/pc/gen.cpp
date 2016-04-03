@@ -10,6 +10,10 @@ int main(int argc, char **argv){
         for(int i=0;i<3;i++,puts(""))
             for(int j=0;j<3;j++)
                 printf("%d ", a[i*3+j]);
+        random_shuffle(a, a+9);
+        for(int i=0;i<3;i++,puts(""))
+            for(int j=0;j<3;j++)
+                printf("%d ", a[i*3+j]);
     }
     return 0;
 }
