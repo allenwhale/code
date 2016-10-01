@@ -1,0 +1,8 @@
+[5] Brownell, D, "Dynamic Reverse Address Resolution Protocol(DRARP)", Work in Progress.
+The Reverse Address Resolution Protocol (RARP) [10] (through the extensions defined in the Dynamic RARP (DRARP) [5]) explicitly addresses the problem of network address discovery, and includes an automatic IP address assignment mechanism.
+[10] Finlayson, R., Mann, T., Mogul, J., and M. Theimer, "A Reverse Address Resolution Protocol", RFC 903, Stanford, June 1984.
+[16] Postel, J., "Internet Control Message Protocol", STD 5, RFC 792, USC/Information Sciences Institute, September 1981.
+The Trivial File Transfer Protocol (TFTP) [20] provides for transport of a boot image from a boot server. The Internet Control Message Protocol (ICMP) [16] provides for informing hosts of additional routers via "ICMP redirect" messages.
+[20] Sollins, K., "The TFTP Protocol (Revision 2)", RFC 783, NIC, June 1981.
+Works [10], [16] and [20] can be obtained via Internet.
+
