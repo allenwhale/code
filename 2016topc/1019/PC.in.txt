@@ -1,0 +1,41 @@
+20
+9
+( not not not not E or ( F and ( ( C or E ) and not ( E and not not G ) ) or not ( not not ( A and B and D ) and not not A or not I ) ) ) and ( ( not ( C and ( ( E or E ) and not I ) ) or not H ) and not H )
+7
+not ( ( F or not ( not C or not G and not F ) ) and ( C or E or ( not not not C and A or not not not ( not F or not D ) ) ) ) or not ( C or F or ( G or not not not B ) and ( not not C or C ) )
+8
+not B and not ( not ( B or not not A ) or H or not ( F and ( not not not E and not not E ) or D ) ) and ( ( not not not ( not not G or not F ) or not not F and ( H or D ) ) and ( not C and not A ) )
+10
+( not I or E ) and not not C and ( B or D ) or not ( not B and G and H or C ) and not ( not B and not B ) and ( not F or D ) or ( not G or ( B and not E or J and A ) and not not D )
+10
+F and not H and not ( not ( C or E ) and E ) and not C or ( not ( not E or not ( D and I or J ) ) or ( not A or not E or not C and ( H and F and B ) or not not ( not D and F and G ) ) )
+10
+( G or not G ) and not ( D and E ) and ( ( E or F ) and ( not G or A or H ) and ( B or ( C or not not ( G and I ) and ( not not J or ( J or I ) ) ) or not D ) and ( not not I or ( not D or E ) ) )
+8
+not not not C or not not not E and not not not E and ( not not ( C or not H ) or not not A ) and ( not F and not not E and ( not B and not not G ) ) or ( D or ( not ( G or F ) or not not E ) )
+9
+not ( not not C and G and B ) or I and ( not ( ( not not D or not E ) and F ) or ( B and not not F or not not B ) and D ) or not E and not ( not not F and not ( not I and F and A ) and H )
+10
+A and not A or B and not B or C and not C or D and not D or E and not E or F and not F or G and not G or H and not H or I and not I or J and not J
+9
+( A and B or not A and not B ) and ( C or not C or D or not D or E or not E or F or not F or G or not G or H or not H or I or not I )
+10
+( A and B or not A and not B ) and ( C or not C or D or not D or E or not E or F or not F or G or not G or H or not H or I or not I or J or not J )
+10
+( B and B or not B and not B ) and ( C and H or not C and not H ) and ( C and H or not C and not H ) and ( D and A or not D and not A ) and ( I and E or not I and not E ) and ( E and J or not E and not J ) and ( A and A or not A and not A )
+10
+( A and H or not A and not H ) and ( G and E or not G and not E ) and ( E and B or not E and not B ) and ( C and B or not C and not B ) and ( E and G or not E and not G ) and ( I and B or not I and not B ) and ( E and E or not E and not E )
+10
+( G and F or not G and not F ) and ( E and F or not E and not F ) and ( B and J or not B and not J ) and ( J and E or not J and not E ) and ( I and J or not I and not J ) and ( I and I or not I and not I ) and ( B and I or not B and not I )
+10
+( J and F or not J and not F ) and ( H and H or not H and not H ) and ( J and H or not J and not H ) and ( H and J or not H and not J ) and ( F and D or not F and not D ) and ( B and C or not B and not C ) and ( B and B or not B and not B )
+10
+( B and H or not B and not H ) and ( G and E or not G and not E ) and ( H and C or not H and not C ) and ( J and I or not J and not I ) and ( B and G or not B and not G ) and ( D and F or not D and not F ) and ( C and I or not C and not I )
+10
+( J and E or not J and not E ) and ( F and G or not F and not G ) and ( C and J or not C and not J ) and ( E and B or not E and not B ) and ( A and G or not A and not G ) and ( E and J or not E and not J ) and ( J and F or not J and not F )
+10
+( G and H or not G and not H ) and ( F and C or not F and not C ) and ( D and H or not D and not H ) and ( J and J or not J and not J ) and ( F and D or not F and not D ) and ( A and E or not A and not E ) and ( C and G or not C and not G )
+10
+( B and B or not B and not B ) and ( E and A or not E and not A ) and ( J and E or not J and not E ) and ( B and C or not B and not C ) and ( E and E or not E and not E ) and ( J and I or not J and not I ) and ( E and A or not E and not A )
+10
+C and I or not C and not I or I and D or not I and not D or D and J or not J and not D or J and G or not J and not G or B and G or not B and not G or B and A or not A and not B or A and E or not E and not A or F and E or not E and not F
