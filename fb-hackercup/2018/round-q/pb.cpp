@@ -13,8 +13,9 @@ void Solve(){
         else if(P[i] + i + 1 == 0) now = 0;
         else now = 1;
     }
-    if(now == 0)printf("0\n");
-    else if(N % 2 == 0){
+    //if(now == 0)printf("0\n");
+    //else 
+    if(N % 2 == 0){
         printf("0\n");
     }else{
         printf("1\n0.0\n");
