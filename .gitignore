@@ -2,3 +2,4 @@
 *.out
 .*.sw[op]
 pcca/homework
+.vscode
